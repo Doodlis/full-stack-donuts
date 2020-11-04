@@ -13,5 +13,4 @@ METHOD	PATH	DESCRIPTION
 GET	/api/donuts	respond with all the donuts from the database
 GET	/api/donuts/:id	respond with single donut, based on req.params.id
  */
-
- 
+const mysql = require('mysql');

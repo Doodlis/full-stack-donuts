@@ -1,4 +1,5 @@
 /**
+ * Part 1:
  * Objectives (read this carefully):
 
 Create a server that responds to the specified RESTful routes
@@ -25,9 +26,10 @@ app.get('/api/donuts', (req, res) => {
 
 app.get('/api/donuts/:id', (req, res) => {
   // pulling off the id somehow
-  const donutID = req.params.id;
-  console.log('Donut id requested: ', donutID);
-  res.send(`single donut: id => ${donutID}`);
+  // const donutID = req.params.id;
+  const { params: { id } } = req;
+  console.log('Donut id requested: ', id);
+  res.send(`single donut: id => ${id}`);
 });
 
 app.listen(PORT, (err) => {
