@@ -14,3 +14,40 @@ GET	/api/donuts	respond with all the donuts from the database
 GET	/api/donuts/:id	respond with single donut, based on req.params.id
  */
 const mysql = require('mysql');
+
+const db = mysql.createConnection({
+  user: 'root',
+  password: 'apples',
+  host: 'localhost',
+  database: 'donuts',
+});
+
+// .connect() ?
+db.connect();
+
+const getAllDonuts = (callback) => {
+  db.query('SELECT * FROM donuts;', (err, results) => {
+    if(err) {
+      // throw err;
+      callback(err); // => res.end();
+      return;
+    }
+    callback(null, results);
+  });
+};
+
+const getOneDonut = (donutID, callback) => {
+  db.query('SELECT * FROM donuts WHERE id = ? ;', donutID, (err, results) => {
+    if(err) {
+      callback(err);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+
+module.exports = {
+  getAllDonuts,
+  getOneDonut,
+};
