@@ -46,15 +46,15 @@ const getOneDonut = (donutID, callback) => {
   });
 };
 
-const getOneDonut = (donutID, callback) => {
-  db.query('INSERT INTO donuts (donut_name, price) VALUES ( ? ,  ? );', [donutName, donutPrice], (err, results) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, results);
-    }
-  });
-};
+// const getOneDonut = (donutID, callback) => {
+//   db.query('INSERT INTO donuts (donut_name, price) VALUES ( ? ,  ? );', [donutName, donutPrice], (err, results) => {
+//     if (err) {
+//       callback(err);
+//     } else {
+//       callback(null, results);
+//     }
+//   });
+// };
 
 
 module.exports = {
