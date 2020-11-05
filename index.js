@@ -21,6 +21,9 @@ const { getAllDonuts, getOneDonut } = require('./queries');
 const app = express();
 const PORT = 3030;
 
+app.use(express.static('client/dist'));
+// app.use(express.json()); => equivalent to body-parser
+
 app.get('/api/donuts', (req, res) => {
   getAllDonuts((err, results) => {
     if(err) {
@@ -47,9 +50,9 @@ app.get('/api/donuts/:id', (req, res) => {
   // res.send(`single donut: id => ${id}`);
 });
 
-app.get('/number', (req, res) => {
-  res.status(200).send(400);
-})
+// app.get('/number', (req, res) => {
+//   res.status(200).send(400);
+// })
 
 // end the connection
 /**
